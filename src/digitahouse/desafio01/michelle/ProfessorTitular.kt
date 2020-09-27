@@ -5,5 +5,5 @@ data class ProfessorTitular(
     override var nome: String,
     override var sobrenome: String,
     override var tempoCasa: Int,
-    override var codigoProfessor: Integer
+    override var codigoProfessor: Int
 ): Professor

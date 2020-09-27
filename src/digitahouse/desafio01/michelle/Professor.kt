@@ -4,5 +4,5 @@ interface Professor {
     var nome: String
     var sobrenome: String
     var tempoCasa: Int
-    var codigoProfessor: Integer
+    var codigoProfessor: Int
 }
