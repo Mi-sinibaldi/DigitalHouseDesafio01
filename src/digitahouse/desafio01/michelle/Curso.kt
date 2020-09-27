@@ -17,6 +17,14 @@ data class Curso(
         return qtdAlunosMax < alunos.count()
     }
 
+    fun adicionarProfAdjunto(umProfessor: ProfessorAdjunto) {
+         professorAdjunto = umProfessor
+    }
+
+    fun adicionarProfTitular(umProfessor: ProfessorTitular) {
+        professorTitular = umProfessor
+    }
+
     fun excluirAluno(umAluno: Aluno){
         alunos.remove(umAluno)
     }
