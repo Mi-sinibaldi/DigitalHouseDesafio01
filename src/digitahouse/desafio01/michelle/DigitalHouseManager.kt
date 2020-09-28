@@ -60,12 +60,25 @@ data class DigitalHouseManager(
         }
     }
 
-    /*fun excluirProfessor(codigoProfessor: Integer){
-        val professor = cursos.firstOrNull { curso -> curso.codigoCurso.equals(codigoCurso) }
-        if (curso != null) {
-            cursos.remove(curso)
+    fun excluirProfessorAdjunto(codigoProfessor: Int) {
+        val professorAdjunto = professoresAdjunto.firstOrNull { curso -> curso.codigoProfessor == codigoProfessor }
+        if (professorAdjunto != null) {
+            professoresAdjunto.remove(professorAdjunto)
+            println("Professor Adjunto excluido com sucesso!")
+        } else {
+            println("Erro ao excluir!")
         }
-    }*/
+    }
+
+    fun excluirProfessorTitular(codigoProfessor: Int) {
+        val professorTitular = professoresTitular.firstOrNull { curso -> curso.codigoProfessor == codigoProfessor }
+        if (professorTitular != null) {
+            professoresTitular.remove(professorTitular)
+            println("Professor Titular excluido com sucesso!")
+        } else {
+            println("Erro ao excluir!")
+        }
+    }
 
     fun adicionarAluno(
         nome: String, sobrenome: String,
@@ -75,7 +88,7 @@ data class DigitalHouseManager(
         if (alunos.firstOrNull { aluno -> aluno.codigoAluno == codigoAluno } == null) {
             alunos.add(Aluno(nome = nome, sobrenome = sobrenome, codigoAluno = codigoAluno))
             println("Aluno $nome adicionado com sucesso")
-        }else{
+        } else {
             println("Erro ao adicionar aluno!")
         }
     }
@@ -112,5 +125,4 @@ data class DigitalHouseManager(
         curso.adicionarProfTitular(professorTitular)
         println("Professores alocados com sucesso!")
     }
-
 }
