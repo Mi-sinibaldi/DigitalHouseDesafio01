@@ -12,6 +12,9 @@ data class DigitalHouseManager(
     fun registrarCurso(nome: String, codigoCurso: Int, quantidadeMaximaDeAlunos: Int) {
         if (cursos.firstOrNull { curso -> curso.codigoCurso == codigoCurso } == null) {
             cursos.add(Curso(nome = nome, codigoCurso = codigoCurso, qtdAlunosMax = quantidadeMaximaDeAlunos))
+            println("Curso $nome cadastrado com sucesso!")
+        } else {
+            println("Erro ao cadastrar o curso!")
         }
     }
 
@@ -34,6 +37,9 @@ data class DigitalHouseManager(
                 tempoCasa = 0,
                 codigoProfessor = codigoProfessor
             ))
+            println("Professor Adjunto $nome cadastrado com sucesso!")
+        } else {
+            println("Erro ao cadastrar professor Adjunto!")
         }
     }
 
@@ -47,6 +53,10 @@ data class DigitalHouseManager(
                 sobrenome = sobrenome,
                 tempoCasa = 0,
                 codigoProfessor = codigoProfessor))
+
+            println("Professor Titular $nome cadastrado com sucesso!")
+        } else {
+            println("Erro ao cadastrar professor Adjunto!")
         }
     }
 
@@ -64,6 +74,9 @@ data class DigitalHouseManager(
     ) {
         if (alunos.firstOrNull { aluno -> aluno.codigoAluno == codigoAluno } == null) {
             alunos.add(Aluno(nome = nome, sobrenome = sobrenome, codigoAluno = codigoAluno))
+            println("Aluno $nome adicionado com sucesso")
+        }else{
+            println("Erro ao adicionar aluno!")
         }
     }
 
@@ -93,10 +106,11 @@ data class DigitalHouseManager(
             professoresTitular.firstOrNull { professor -> professor.codigoProfessor == codigoProfessorTitular }
                 ?: return
 
-        val curso = cursos.firstOrNull { curso -> curso.codigoCurso.equals(codigoCurso) } ?: return
+        val curso = cursos.firstOrNull { curso -> curso.codigoCurso == codigoCurso } ?: return
 
         curso.adicionarProfAdjunto(professorAdjunto)
         curso.adicionarProfTitular(professorTitular)
+        println("Professores alocados com sucesso!")
     }
 
 }

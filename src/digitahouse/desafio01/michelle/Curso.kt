@@ -14,7 +14,7 @@ data class Curso(
     }
 
     fun adicionarUmAluno(umAluno: Aluno): Boolean {
-        return qtdAlunosMax < alunos.count()
+        return qtdAlunosMax >= alunos.count()
     }
 
     fun adicionarProfAdjunto(umProfessor: ProfessorAdjunto) {
